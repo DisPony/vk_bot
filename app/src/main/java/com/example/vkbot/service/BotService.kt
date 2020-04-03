@@ -1,19 +1,22 @@
 package com.example.vkbot.service
 
-import android.app.*
-import android.content.Intent
+import android.app.Notification
+import android.app.NotificationChannel
+import android.app.NotificationManager
 import android.content.Context
+import android.content.Intent
 import android.os.Build
 import android.util.Log
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
-import androidx.lifecycle.*
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.LifecycleService
+import androidx.lifecycle.Observer
 import com.example.vkbot.R
 import com.example.vkbot.bot.Bot
 import com.example.vkbot.bot.dialogues
 import com.example.vkbot.utils.notification
 import com.example.vkbot.utils.pendingIntent
-import kotlin.properties.Delegates
 
 const val ACTION_LAUNCH = "com.example.vkbot.action.LAUNCH"
 private const val ACTION_PAUSE = "com.example.vkbot.action.PAUSE"
@@ -65,8 +68,11 @@ class BotService : LifecycleService() {
                 Log.d("BotService", "isStarted: $isStarted")
                 updateNotification(
                     id = CONTROL_NOTIFICATION_ID,
-                    notification = if (isStarted) botStartedNotification()
-                    else botPausedNotification(apiKey)
+                    notification = if (isStarted) {
+                        botStartedNotification()
+                    } else  {
+                        botPausedNotification(apiKey)
+                    }
                 )
             })
             it.newJobEvent.observe(this, Observer { job ->
