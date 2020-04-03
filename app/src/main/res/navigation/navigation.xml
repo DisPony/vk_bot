@@ -9,7 +9,7 @@
         android:id="@+id/botConfig"
         android:name="com.example.vkbot.ui.BotConfigFragment"
         android:label="bot_config_fragment"
-        tools:layout="@layout/bot_config_fragment" >
+        tools:layout="@layout/fragment_bot_config" >
         <action
             android:id="@+id/action_botConfig_to_botManager"
             app:destination="@id/botManager" />
