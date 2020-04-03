@@ -7,7 +7,7 @@
 
     <dialog
         android:id="@+id/botConfig"
-        android:name="com.example.vkbot.ui.BotConfig"
+        android:name="com.example.vkbot.ui.BotConfigFragment"
         android:label="bot_config_fragment"
         tools:layout="@layout/bot_config_fragment" >
         <action
@@ -16,7 +16,7 @@
     </dialog>
     <fragment
         android:id="@+id/botManager"
-        android:name="com.example.vkbot.ui.BotStarter"
+        android:name="com.example.vkbot.ui.BotStarterFragment"
         android:label="fragment_bot_manager"
         tools:layout="@layout/fragment_bot_manager" >
         <action

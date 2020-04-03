@@ -16,4 +16,5 @@
     <string name="start_service">Запустить сервис</string>
     <string name="edit_key">Редактировать ключ</string>
     <string name="new_job">Получена заявка</string>
+    <string name="invalid_key">Ключ не валиден</string>
 </resources>

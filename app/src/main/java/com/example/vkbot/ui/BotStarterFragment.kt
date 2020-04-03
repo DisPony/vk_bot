@@ -15,7 +15,7 @@ import com.example.vkbot.R
 import com.example.vkbot.service.BotService
 
 
-class BotStarter : Fragment() {
+class BotStarterFragment : Fragment() {
 
     private val viewModel: BotConfigViewModel by activityViewModels()
 
@@ -48,8 +48,8 @@ class BotStarter : Fragment() {
             startButton.isEnabled = it
         })
 
-        activity?.getSharedPreferences("bot", Context.MODE_PRIVATE)
-            ?.run { getString("key", null) }
+        activity?.getSharedPreferences(BOT_PREFERENCES_NODE, Context.MODE_PRIVATE)
+            ?.run { getString(BOT_PREFERENCE_KEY, null) }
             ?.let { viewModel.submit(it) }
             ?: findNavController().navigate(R.id.action_botManager_to_botConfig)
     }
