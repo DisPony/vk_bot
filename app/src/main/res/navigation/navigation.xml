@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/botManager">
+
+    <dialog
+        android:id="@+id/botConfig"
+        android:name="com.example.vkbot.ui.BotConfig"
+        android:label="bot_config_fragment"
+        tools:layout="@layout/bot_config_fragment" >
+        <action
+            android:id="@+id/action_botConfig_to_botManager"
+            app:destination="@id/botManager" />
+    </dialog>
+    <fragment
+        android:id="@+id/botManager"
+        android:name="com.example.vkbot.ui.BotStarter"
+        android:label="fragment_bot_manager"
+        tools:layout="@layout/fragment_bot_manager" >
+        <action
+            android:id="@+id/action_botManager_to_botConfig"
+            app:destination="@id/botConfig" />
+    </fragment>
+</navigation>
